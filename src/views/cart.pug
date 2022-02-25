@@ -1,0 +1,60 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='description' content='Une description')
+    meta(name='keywords' content='des mots clés')
+    meta(name='robots' content='index,follow')
+    meta(http-equiv='cache-control' content='public,max-age=604800,must-revalidate')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='https://unpkg.com/purecss@2.0.6/build/pure-min.css' integrity='sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5' crossorigin='anonymous')
+    link(rel='stylesheet' href='style.css' type='text/css')
+    script(type="module" src='script.js')
+    title Demo
+include header
+main.cart
+    section
+        h1 Panier
+        hr
+        each item in cartItems
+            article.cart__cart-item(id=item.id)
+                .cart__cart-item__cover
+                    img.cover(src=item.cover_img_path alt=item.title + ' cover' data-pagespeed-url-hash='1025911351')
+                .cart__cart-item__infos
+                    div
+                        h3.cart__cart-item__infos__title #{item.title} - [cartouche seule]
+                    div
+                        span Classification PEGI #{item.pegi} : ans et plus
+                    div
+                        span #{item.release_year} | #{item.editor}
+                    div
+                        span
+                            | plateforme :&nbsp;
+                            strong=item.platform
+                    .cart__cart-item__infos__remove
+                        button.cart__cart-item__infos__remove__btn(type='button' data-item-id=item.id) Supprimer
+                .cart__cart-item__price
+                    span.cart__cart-item__price__value(data-item-price=item.price) #{item.price} &euro;
+        hr
+        .cart__subtotal
+            span.cart__subtotal__label Sous-total (1 article) :
+            span.cart__subtotal__price.dynamic_cart_value 00,00 &euro;
+    aside
+        article.order-block
+            h2 Commande
+            .order__total-cart
+                span.order__total-cart__label Montant du panier :
+                span.order__total-cart__value.dynamic_cart_value(data-order-total=0.00) 0.00 &euro;
+            .order__offer
+                span.order__offer__label Offre en cours :
+                span.order__offer__value.dynamic_discount_value(data-discount-value=50.10) - 50.10 &euro;
+            .order__shipping
+                span.order__shipping__label Frais de port :
+                span.order__shipping__value offert
+            hr
+            .order__total
+                span.order__total__label Total :
+                span.order__total__value.dynamic_order_total(data-order-total=50.75) 50.75 &euro;
+        article.cart-btn-block
+            a.pure-button.pure-button-secondary.pure-u-1(href='/index') Continuer mes achats
+            a.pure-button.pure-button-primary.pure-u-1(href='/address') Finaliser ma commande
+include footer

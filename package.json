@@ -1,0 +1,69 @@
+{
+  "name": "nookgames",
+  "version": "0.0.0",
+  "main": "src/app.js",
+  "repository": "/nookgames",
+  "author": "Tom Nook",
+  "license": "Nintendo",
+  "type": "module",
+  "nodemonConfig": {
+    "ext": "less,js,pug",
+    "watch": [
+      "src/**/*",
+      ""
+    ],
+    "delay": 3000
+  },
+  "mocha": {
+    "spec": "./tst"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha --experimental-specifier-resolution=node",
+    "build:css": "lessc src/views/styles/main.less assets/style.css",
+    "build:js": "rollup --config rollup.config.js",
+    "start": "node --experimental-specifier-resolution=node src/app.js",
+    "build-and-start": "yarn build:js && yarn build:css && yarn start",
+    "start:dev": "nodemon --exec yarn build-and-start",
+    "lint": "eslint src --ext .js",
+    "lint:fix": "yarn lint --fix",
+    "db:migrate": "db-migrate up --migrations-dir ./migrations --config ./database.json --env dev --verbose",
+    "db:migrate:down": "db-migrate down --migrations-dir ./migrations --config ./database.json --env dev --verbose",
+    "db:migrate:clear": "db-migrate reset --migrations-dir ./migrations --config ./database.json --env dev --verbose",
+    "db:seed": "db-migrate up:seeds --migrations-dir ./migrations --config ./database.json --env dev --verbose",
+    "db:seed:clear": "db-migrate reset:seeds --migrations-dir ./migrations --config ./database.json --env dev --verbose",
+    "db:clear": "yarn db:seed:clear && yarn db:migrate:clear",
+    "db:reset": "yarn db:clear && yarn db:migrate"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "cheerio": "^1.0.0-rc.10",
+    "cors": "^2.8.5",
+    "dayjs": "^1.10.5",
+    "db-migrate": "^0.11.12",
+    "db-migrate-pg": "^1.2.2",
+    "dotenv": "^10.0.0",
+    "envie": "^3.1.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-boom": "^3.0.0",
+    "express-pino-logger": "^6.0.0",
+    "express-validator": "^6.11.1",
+    "googleapis": "39",
+    "helmet": "^4.6.0",
+    "js-base64": "^3.6.1",
+    "npm": "^7.19.1",
+    "pg-promise": "^10.10.2",
+    "pug": "^3.0.2",
+    "sinon": "^11.1.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "eslint": "^7.28.0",
+    "less": "^4.1.1",
+    "mocha": "^9.0.1",
+    "nodemon": "^2.0.7",
+    "rollup": "^2.52.1",
+    "sinon-chai": "^3.7.0"
+  }
+}

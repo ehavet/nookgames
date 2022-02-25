@@ -1,0 +1,31 @@
+include head
+main.pure-g
+    section.pure-u-1
+        table.pure-table
+            thead
+                tr
+                    th #
+                    th itemId
+                    th unitPrice
+                    th quantity
+            tbody
+                each lot in lots
+                    tr
+                        td #{lot.id}
+                        td #{lot.itemId}
+                        td #{lot.unitPrice}
+                        td #{lot.quantity}
+
+    section.pure-u-1
+        form.pure-form.pure-form-stacked(action='/dashboard/lots' method='POST')
+            fieldset
+                legend A Stacked Form
+                label(for='unit-price') unit price
+                input#unit-price(type='number' name='unit_price' min='1' placeholder='0' required="required")
+                label(for='quantity') quantity
+                input#quantity(type='number' name='quantity' min='1' placeholder='0' required="required")
+                label(for='item-id') title
+                select#item-id(name='item_id')
+                    each item in items
+                        option(value=item.id) #{item.title}
+                button.pure-button.pure-button-primary(type='submit') Submit

@@ -1,0 +1,58 @@
+include head
+main.pure-g
+    section.pure-u-1
+        table.pure-table
+            thead
+                tr
+                    th #
+                    th clientId
+                    th status
+                    th salesChannel
+                    th cart
+                    th payment type
+                    th payment debtor
+                    th payment status
+                    th delivery type
+                    th delivery provider
+                    th delivery tracking number
+                    th delivery status
+                    th created at
+                    th updated at
+            tbody
+                each order in orders
+                    tr
+                        td #{order.id}
+                        td #{order.clientId}
+                        td #{order.status}
+                        td #{order.salesChannel}
+                        td #{order.cart}
+                        td #{order.payment.type}
+                        td #{order.payment.debtor}
+                        td #{order.payment.status}
+                        td #{order.delivery.type}
+                        td #{order.delivery.provider}
+                        td #{order.delivery.trackingNumber}
+                        td #{order.delivery.status}
+                        td #{order.createdAt}
+                        td #{order.updatedAt}
+
+    section.pure-u-1
+        form.pure-form.pure-form-aligned(action='/dashboard/collects' method='POST')
+            fieldset
+                label.pure-checkbox(for='aligned-promo-codes')
+                select#aligned-promo-codes(name='promo_codes[]')
+                    option(value=undefined)
+                    each promo in promo_codes
+                        option(value=promo.id) #{promo.type} #{promo.value / 100}
+
+                label.pure-checkbox(for='aligned-sales-channel')
+                select#aligned-sales-channel(name='sales_channel')
+                    option le bon coin
+                    option website
+                    option vinted
+                each item in items
+                    label.pure-checkbox(for='checkbox-radio-option-' + item.id)
+                        input(id='checkbox-radio-option-' + item.id type='checkbox' name='cart[]' value=item.id)
+                        |  #{item.title}
+                button.pure-button.pure-button-primary(type='submit') Submit
+footer

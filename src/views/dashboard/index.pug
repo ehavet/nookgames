@@ -1,0 +1,60 @@
+include head
+main.pure-g
+    section.pure-u-1
+        table.pure-table
+            thead
+                tr
+                    th itemId
+                    th lotId
+                    th purchase price
+                    th displayed price
+                    th selling price
+                    th sold at
+
+            tbody
+                each sale in sales
+                    tr
+                        td #{sale.itemId}
+                        td #{sale.lotId}
+                        td #{sale.purchasePrice}
+                        td #{sale.displayedPrice}
+                        td #{sale.sellingPrice}
+                        td #{sale.createdAt}
+
+    section.pure-u-1
+        table.pure-table
+            thead
+                tr
+                    th #
+                    th clientId
+                    th status
+                    th salesChannel
+                    th cart
+                    th payment type
+                    th payment debtor
+                    th payment status
+                    th delivery type
+                    th delivery provider
+                    th delivery tracking number
+                    th delivery status
+                    th created at
+                    th updated at
+            tbody
+                each order in orders
+                    tr
+                        td #{order.id}
+                        td #{order.clientId}
+                        td #{order.status}
+                        td #{order.salesChannel}
+                        td #{order.cart}
+                        td #{order.payment.type}
+                        td #{order.payment.debtor}
+                        td #{order.payment.status}
+                        td #{order.delivery.type}
+                        td #{order.delivery.provider}
+                        td #{order.delivery.trackingNumber}
+                        td #{order.delivery.status}
+                        td #{order.createdAt}
+                        td #{order.updatedAt}
+
+footer

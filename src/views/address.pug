@@ -1,0 +1,72 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='description' content='Une description')
+    meta(name='keywords' content='des mots clés')
+    meta(name='robots' content='index,follow')
+    meta(http-equiv='cache-control' content='public,max-age=604800,must-revalidate')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='https://unpkg.com/purecss@2.0.6/build/pure-min.css' integrity='sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5' crossorigin='anonymous')
+    link(rel='stylesheet' href='style.css' type='text/css')
+    title Demo
+include header-checkout
+main.address
+    section
+        article
+            form.pure-form.pure-form-stacked(action='/address' method='POST')
+                fieldset
+                    legend
+                        h1 Renseigner une adresse de livraison
+                    label(for='name') Prénom et nom
+                    input#name.pure-input-1(type='text' name='name' required='')
+                    label(for='address') Adresse
+                    textarea#address.pure-input-1(name='address' required='')
+                    label(for='city') Ville
+                    input#city.pure-input-1(type='text' name='city' required='')
+                    label(for='postal_code') Code postal
+                    input#postal_code.pure-input-1(type='text' name='postal_code' required='')
+                    label(for='email') Email
+                    input#email.pure-input-1(type='text' name='email' required='')
+                    label(for='phone_number') Num&eacute;ro de t&eacute;l&eacute;phone
+                    input#phone_number.pure-input-1(type='text' name='phone_number')
+                button.pure-button.pure-input-1.pure-button-primary(type='submit') Continuer
+            p.add-address-disclaimer
+                | En passant votre commande, vous acceptez les
+                a.whitespace(href='#') Conditions générales de vente
+                |  de nook games shop
+    aside
+        article.cart-content-block
+            h2 Récapitulatif
+            ul
+                each item in cartItems
+                    li
+                        | 1 x&nbsp;
+                        a(href='/cart')= item.title
+                        strong &nbsp;[cartouche seule]
+        article.order-block
+            .order__total-cart
+                span.order__total-cart__label Montant du panier :
+                span.order__total-cart__value 99,75 &euro;
+            .order__offer
+                span.order__offer__label Offre en cours :
+                span.order__offer__value - 50.10 &euro;
+            .order__shipping
+                span.order__shipping__label Frais de port :
+                span.order__shipping__value offert
+            hr
+            .order__total
+                span.order__total__label Total :
+                span.order__total__value 50,75 &euro;
+        article.reassuring-block
+            .reassuring-block__nook-info-icon
+                .nook-info-icon
+                    .nook-info-sprite
+            p
+                | "Votre commande sera préparée avec soin puis livrée
+                strong &nbsp;gratuitement
+                strong &nbsp;en 48h
+                strong &nbsp;par lettre suivie
+                | "
+            .reassuring-block__contextual-icon
+                img(src='localisation-icon.png' alt='logo de localisation' data-pagespeed-url-hash='1235911301')
+include footer-lite

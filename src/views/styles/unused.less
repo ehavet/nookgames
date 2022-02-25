@@ -1,0 +1,168 @@
+/********************** DETAIL ************************/
+/********************** DETAIL ************************/
+/********************** DETAIL ************************/
+
+main.detail {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main.detail section article {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 3rem;
+}
+
+.article__cover {
+  width: 43%;
+}
+
+.article__description {
+  width: 40%;
+}
+
+.article__cover img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.article__description__price {
+  margin-block-start: 0.20rem;
+  margin-block-end: 0.20rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.article__description__price .value {
+  margin-inline-start: 0.20rem;
+  color: #B12704;
+  font-size: 1.5em;
+}
+
+.article__description__stock {
+  margin-block-start: 0.20rem;
+  margin-block-end: 0.20rem;
+  color: #31A041;
+  font-size: 1.2em;
+}
+
+.article__description__options {
+  margin-block-start: 1rem;
+  margin-block-end: 1rem;
+}
+
+/****************** LOGIN / REGISTER ******************/
+/****************** LOGIN / REGISTER ******************/
+/****************** LOGIN / REGISTER ******************/
+
+main.login section {
+  width: 320px;
+}
+
+main.login section article {
+  padding: 25px;
+  border-radius: 4px;
+  border: 1px solid #53494050;
+}
+
+main.login article p {
+  font-size: 0.75rem;
+}
+
+main.login article a {
+  text-decoration: underline;
+}
+
+main.login article h1 {
+  font-weight: 400;
+}
+
+main.login section {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 20px auto;
+}
+
+.a-divider.a-divider-break {
+  text-align: center;
+  position: relative;
+  top: 2px;
+  padding-top: 1px;
+  margin-bottom: 14px;
+  line-height: 0;
+}
+
+.a-divider.a-divider-break:after {
+  content: "";
+  width: 100%;
+  background-color: transparent;
+  display: block;
+  height: 1px;
+  border-top: 1px solid @divider-color;
+  position: absolute;
+  top: 50%;
+  margin-top: -1px;
+  z-index: 1;
+}
+
+.a-divider.a-divider-break h5 {
+  line-height: 1;
+  font-size: 12px;
+  color: #534940;
+  font-weight: 400;
+  z-index: 2;
+  position: relative;
+  display: inline-block;
+  background-color: @primary-bg-color;
+  padding: 0 8px 0 7px;
+}
+
+form label {
+  font-weight: 600;
+  padding-left: 0.20rem;
+}
+
+/*********************** ADDRESS **********************/
+/*********************** ADDRESS **********************/
+/*********************** ADDRESS **********************/
+
+main.address {
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-block-end: 3em;
+}
+
+main.address .header__logo {
+  width: 60px;
+}
+
+.address section {
+  width: 60%;
+  padding: 0 1rem;
+}
+
+.address aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 26%;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+main.address .add-address-disclaimer a {
+  text-decoration: underline;
+}
+
+.address article {
+  width: 100%;
+}

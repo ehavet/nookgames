@@ -1,0 +1,73 @@
+header {
+  background-color: @primary-header-bg-color;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.8rem;
+}
+
+header div {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+header a {
+  text-decoration: none;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+header .header__logo {
+  width: 60px;
+}
+
+header .header__shopping-cart-icon {
+  width: 40px;
+}
+
+header .header__shopping-cart-badge {
+  width: 26px;
+  height: 26px;
+  border-radius: 13px;
+  background: @tertiary-color;
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+}
+
+nav {
+  background-color: @secondary-header-bg-color;
+  color: @primary-color;
+  font-weight: 400;
+}
+
+nav ul {
+  margin: 0.80em 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 2px;
+}
+
+nav ul li a {
+  padding: 0 10px;
+}
+
+header.lite {
+  background-color: @primary-bg-color;
+  justify-content: center;
+}
+
+header.checkout {
+  background-color: transparent;
+  justify-content: flex-start;
+}

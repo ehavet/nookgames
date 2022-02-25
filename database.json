@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "driver": "pg"
+  },
+  "prod": {
+    "driver": "pg",
+    "username": "test",
+    "password": "test",
+    "host": "localhost",
+    "database": "mydb",
+    "port": "20144",
+    "ssl": "true",
+    "schema": "my_schema"
+  }
+}

@@ -1,0 +1,36 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='description' content='Une description')
+    meta(name='keywords' content='des mots clés')
+    meta(name='robots' content='index,follow')
+    meta(http-equiv='cache-control' content='public,max-age=604800,must-revalidate')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='https://unpkg.com/purecss@2.0.6/build/pure-min.css' integrity='sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5' crossorigin='anonymous')
+    link(rel='stylesheet' href='style.css' type='text/css')
+    title Demo
+
+include header-lite
+main.login
+    section
+        article
+            form.pure-form.pure-form-stacked
+                fieldset
+                    legend
+                        h1 S&apos;identifier
+                    label(for='stacked-email') Adresse e-mail
+                    input#stacked-email.pure-input-1(type='email' required='')
+                    label(for='stacked-password') Mot de passe
+                    input#stacked-password.pure-input-1(type='password' required='')
+                button.pure-button.pure-input-1.pure-button-primary(type='submit') Continuer
+            p
+                | En passant votre commande, vous acceptez les
+                a(href='#')  Conditions générales de vente
+                |  de nook games shop
+        .a-divider.a-divider-break
+            h5 Nouveau chez Nook ?
+        a.pure-button.pure-u-1(href='/register') Créer votre compte
+        .a-divider.a-divider-break
+            h5 ou
+        a.pure-button.pure-u-1(href='/address') Continuer sans s'inscrire
+include footer-lite

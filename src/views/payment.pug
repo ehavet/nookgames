@@ -1,0 +1,102 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='description' content='Une description')
+    meta(name='keywords' content='des mots clés')
+    meta(name='robots' content='index,follow')
+    meta(http-equiv='cache-control' content='public,max-age=604800,must-revalidate')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='https://unpkg.com/purecss@2.0.6/build/pure-min.css' integrity='sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5' crossorigin='anonymous')
+    link(rel='stylesheet' href='style.css' type='text/css')
+    title Demo
+include header-checkout
+main.address
+    section
+        h1 R&egrave;gler votre commande
+        hr
+        article.address-block
+            h3 Livrer à cette adresse :
+            div
+                span
+                    strong= client.name
+            div
+                span= client.address
+            div
+                span= client.postalCode + client.city
+            div
+                span France
+            br
+            div
+                span
+                    strong= client.email
+            div
+                span
+                    strong= client.phoneNumber
+            a.address-block__update-btn.pure-button.pure-u-1(href='/address') Modifier
+        article
+            form.pure-form.pure-form-stacked
+                fieldset
+                    .pure-g
+                        .pure-u-1-3
+                            label(for='multi-first-name') Name
+                            input#multi-first-name.pure-u-23-24(type='text')
+                        .pure-u-1-3
+                            label(for='multi-last-name') number
+                            input#multi-last-name.pure-u-23-24(type='text')
+                        .pure-u-1-3
+                            label(for='multi-email') Date d&apos;expiration
+                            input#multi-email.pure-u-23-24(type='email' required='')
+                        .pure-u-1-3
+                            label(for='multi-city') CSC
+                            input#multi-city.pure-u-23-24(type='text')
+                        .pure-u-1-3
+                            label(for='multi-state') Pays
+                            select#multi-state.pure-input-1-2
+                                option AL
+                                option CA
+                                option IL
+                    label.pure-checkbox(for='multi-terms')
+                        input#multi-terms(type='checkbox')
+                        | J&apos;ai lu et j&apos;accepte les
+                        a(href='#') Conditions g&eacute;n&eacute;rales de vente
+                    button.pure-button.pure-button-primary.pure-u-1(type='submit')
+                        | R&egrave;gler
+                        strong 35.90 &euro;
+    aside
+        article.cart-content-block
+            h2 Récapitulatif
+            ul
+                each item in cartItems
+                    li
+                        | 1 x&nbsp;
+                        a(href='/cart')= item.title
+                        strong &nbsp;[cartouche seule]
+        article.order-block
+            .order__total-cart
+                span.order__total-cart__label Montant du panier :
+                span.order__total-cart__value 99,75 &euro;
+            .order__offer
+                span.order__offer__label Offre en cours :
+                span.order__offer__value - 50.10 &euro;
+            .order__shipping
+                span.order__shipping__label Frais de port :
+                span.order__shipping__value offert
+            hr
+            .order__total
+                span.order__total__label Total :
+                span.order__total__value 50,75 &euro;
+        article.reassuring-block
+            .reassuring-block__nook-info-icon
+                .nook-info-icon
+                    .nook-info-sprite
+            p
+                | "Nous passons par
+                strong  Stripe
+                br
+                | pour vous proposer une expérience de paiement
+                br
+                strong simple, fiable et sécurisée
+                |"
+            .reassuring-block__contextual-icon
+                    img(src='cb-icon.png' alt='logo de localisation' data-pagespeed-url-hash='1235911287')
+include footer-lite

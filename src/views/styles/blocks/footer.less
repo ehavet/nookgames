@@ -1,0 +1,86 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+footer {
+  background-color: @primary-header-bg-color;
+  text-align: center;
+}
+
+footer section {
+  justify-content: space-evenly;
+  align-items: self-start;
+  margin: 1rem auto;
+}
+
+footer section div {
+  width: 13rem;
+}
+
+footer .footer__bottom {
+  background-color: @secondary-header-bg-color;
+  color: @white;
+  margin: 0;
+  font-size: 0.70rem;
+  padding-block-start: 0.20rem;
+  padding-block-end: 0.40rem;
+}
+
+footer .footer__top {
+  background-color: @tertiary-header-bg-color;
+  margin: 0;
+  padding: 0.80rem 0;
+}
+
+footer .footer__bottom__logo {
+  width: 2rem;
+}
+
+footer .footer__bottom__copyright {
+  font-size: 0.70rem;
+}
+
+footer .footer__top__scroll-back-to-top-btn {
+  font-size: 0.85rem;
+  color: @primary-color;
+  text-decoration: none;
+}
+
+footer .footer__body__parcel-icon {
+  width: 3rem;
+  margin: auto;
+}
+
+footer .footer__body__bell-icon {
+  width: 3rem;
+  margin: auto;
+}
+
+footer .footer__body__letter-icon {
+  width: 3rem;
+  margin: auto;
+}
+
+footer .footer__body__infos-icon {
+  width: 3rem;
+  margin: auto;
+}
+
+footer .footer__body__element {
+  margin-inline-start: 0.5rem;
+  margin-inline-end: 0.5rem;
+}
+
+footer .footer__body__infos-links {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+
+footer.lite {
+  font-size: 0.70rem;
+
+  .footer__bottom {
+    background-color: @primary-header-bg-color;
+  }
+}
